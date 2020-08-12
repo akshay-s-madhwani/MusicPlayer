@@ -2,22 +2,22 @@ window.onload = function() {
    
     //Variables
     let audioArray = ["songs/Benny%20Blanco%20Halsey%20&%20Khalid-Eastside.mp3",
-                 "songs/Ava%20Max%20-%20Sweet%20but%20Psycho.mp3","songs/Alan%20Walker,%20Ava%20Max%20-%20Alone,%20Pt.%20II.mp3","songs/Diplo_-_Revolution_feat_Faustix_Imanos_and_Kai_Official_Music_Video%5BSaveFrom.online%5D.mp3","songs/Loud%20Luxury%20Ft.%20Brando-Body.mp3","songs/Shawn%20Mendes-Treat%20You%20Better.mp3"];
     
-    let imgArray = ["img/eastside.jpg","img/Cover%20Ava%20Max%20-%20Sweet%20but%20Psycho.jpg","img/Cover%20Ava%20Max%20-%20Sweet%20but%20Psycho.jpg","img/revoloution.jpg","img/body.jpg","img/treat%20u%20better.jpg"];
+                 "songs/Alan%20Walker,%20Ava%20Max%20-%20Alone,%20Pt.%20II.mp3","songs/Diplo_-_Revolution_feat_Faustix_Imanos_and_Kai_Official_Music_Video%5BSaveFrom.online%5D.mp3","songs/Ed%20Sheeran%20-%20Perfect%20[Mw%20Hits].mp3","songs/Loud%20Luxury%20Ft.%20Brando-Body.mp3","songs/Ava%20Max%20-%20Sweet%20but%20Psycho.mp3","songs/Shawn%20Mendes-Treat%20You%20Better.mp3"];
+    let imgArray = ["img/eastside.jpg","img/external-content.duckduckgo.com.jpg","img/re.jpg","img/Ed-Sheeran-Divide Cover.jpg","img/body.jpg","img/Cover%20Ava%20Max%20-%20Sweet%20but%20Psycho.jpg","img/treat%20u%20better.jpg"];
     
-    let nameArray = ["Eastside","Sweet but Psycho","Alone Pt.2","Revolution","Body","Treat You Better"];
+    let nameArray = ["Eastside","Alone Pt.2","Revolution","Perfect","Body","Sweet but Psycho","Treat You Better"];
     
-    let artistArray = ["Benny Blanco, Halsey & Khalid","Ava max", "Alan Walker ft.Ava Max", "Diplo ft. Kai & Faustix Imanos", "Loud Luxury ft. Brando", "Shawn Mendes"];
-    
+    let artistArray = ["Benny Blanco, Halsey & Khalid", "Alan Walker ft.Ava Max", "Diplo ft. Kai & Faustix Imanos","Ed Sheeran", "Loud Luxury ft. Brando","Ava max", "Shawn Mendes"];
+const showcase  =  document.querySelector('.display');    
 const display = document.querySelector('.display_inner');
-    
+//const =  document.querySelector('.display_inner');
+//const
 let button = document.querySelectorAll('.play')[0];
-let pause = document.querySelectorAll('.pause')[0];
 let active = false;
 let songDisplay = document.querySelector('.currentSong');
 let seekBar = document.querySelector('input[type=range]');
-    let seek,stop;
+let seek,stop;
 let listView = document.querySelector('.listView');
     
 
@@ -129,7 +129,7 @@ mainPlayer.prototype.imgPlaying = function(j){
         this.music[stage[0]].pause();
         this.music[j].play();
         button.setAttribute('class',' fa fa-pause-circle-o play');
-        songDisplay.innerText = this.artist[j].childNodes[0].innerText;
+        songDisplay.innerText =`${this.artist[j].childNodes[0].innerText} -> ${this.artist[j].childNodes[1].innerText}`;
         
         return active;
     }
@@ -161,6 +161,7 @@ mainPlayer.prototype.seekable = function(j){
     let presentSong = this.music[j];
     if(active == true){
         try{
+            seekBar.max = presentSong.duration;
             presentSong.onchange = function(){stopSeek()}
              seek = setInterval(function(){
             seekBar.value = presentSong.currentTime;}
@@ -181,80 +182,7 @@ mainPlayer.prototype.seekable = function(j){
         }
     }
 }
-//        if(active==false){
-//        
-//            active = true;
-//            this.music[j].play();
-//            button.setAttribute('class',' fa fa-pause-circle-o play');
-//            console.log(active)
-//            return active;
-//        }
-
-//    
-//mainPlayer.prototype.playMusic = function(music,artist){
-//let stage = document.querySelector('.displayFront');
-//let img = document.querySelectorAll(".play_img");    
-//    console.log(stage.getBoundingClientRect())
-//    for (let j in music){
-//       
-//    this.image[j].onclick = function(){
-//                if(img[j].clientLeft == stage.clientLeft){
-//            console.log(music[j])
-//        }
-//
-//         console.log(display.getClientRect())
-//        active = true;
-//        playing(btn(active));
-//        button.onclick = btn()
-//        function btn(){
-//            if(button.classList == " fa", "fa-play-circle-o", "play"){
-//                active = true;
-//                button.setAttribute('class',' fa fa-pause-circle-o play');
-//        }
-//            else if(button.classList =='fa fa-pause-circle-o play'){
-//                active = false;
-//                
-//                button.setAttribute('class'," fa", "fa-play-circle-o", "play");
-//            }
-//            console.log(active)
-//            return active
-//        };
-//       function playing(active){
-//         if(active){
-//           music[j].play();            button.setAttribute('class','fa fa-pause-circle-o play');
-//        songDisplay.innerText = artist[j];
-//             
-//         if(seekBar.value <= music[j].duration){
-//             setInterval(function(){
-//                 seekBar.value = music[j].currentTime;
-//             },100);
-//         }}
-//        else if(active==false){
-//            music[j].pause();
-//            button.setAttribute('class','fa fa-play-circle-o play');
-//            seekBar.value = music[j].currentTime;
-//            console.log(active)
-//                }
-//        return music[j]
-//    }
-//    
-//        music[j].onplaying =()=>{
-//        console.log(seekBar.max)
-//        
-//    
-//            }
-//        console.log(j)
-//        return j;
-//        if(button.classList == " fa", "fa-pause-circle-o", "play"){
-//    button.addEventListener("click",function(){
-//            music[j].pause();
-//        })
-//    } else if(button.classList == " fa", "fa-play-circle-o", "play"){
-//        button.addEventListener("click",function(){   
-//            music[j].play();
-//            console.log(music[j])
-//            })
-//    }
+//--------------------------------------------------------------//
 
 const play = new createMusic(audioArray,imgArray,nameArray,artistArray);
 
@@ -263,7 +191,18 @@ const player = new mainPlayer(play.createPlayer(),play.createImg(),play.Title(),
     let list = document.querySelectorAll('.list');
     for(let j in audioArray){
     im[j].onclick =function(){player.imgPlaying(j);
+                              clearInterval(seek);
                               player.seekable(j);
+                     showcase.setAttribute('id','big-display');
+                     im[j].setAttribute('id','big-img');
+                        display.style.transform=`translateX(-${im[j].getBoundingClientRect().x -110}px)`;
+                              if(stage.length > 1){
+                     im[stage[0]].removeAttribute('id','big-img');
+                        display.style.transform=`translateX(none)`;
+                                  console.log(display.getClientRects());
+                              }
+                              
+                              
     button.onclick = function(){player.utility(j);}
                              }
     list[j].onclick =function(){player.imgPlaying(j);
