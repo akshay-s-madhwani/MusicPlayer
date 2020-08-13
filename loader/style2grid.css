@@ -5,22 +5,70 @@ body{
 .loader{
 width:100vw;
 height: 100vh;
-background: #111;
-display: grid;    
-margin-left: 5%;
-grid-template-columns: 12% 12% 12%;
-grid-template-rows:10% 10% 10%;
+background: #aaa;
+display: grid;  
+z-index: 5;
+    
+grid-template-columns: 22% 22% 22%;
+grid-template-rows:15% 15% 15%;
     grid-template-areas: 
         'g1 g2 g3'
         'g4 g5 g6'
         'g7 g8 g9';
 grid-gap: 10vw;
+    overflow: hidden;
+}
+.logoScreen{
+    width:100vw;
+    height: 100vh;
+    background: rgba(5,5,5,1);
+    display: flex;
+    justify-content: space-between;
+    background-size: 120px 30px;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.8;
+    filter:contrast(120) brightness(250px);
+    padding-left: 160px;
+    overflow: hidden;
+}
+.logo{
+    width:40vw;
+    height: 40vw;
+    position: fixed;
+    align-self: center;
+    background: rgba(120,20,20,1);
+border-radius: 20%;
+    padding-top: 40px;
+    top:40vh;
+    left:30vw;
+    text-align: center;
+    filter: contrast(2);
+}
+.logo img{
+    filter:contrast(26);
+    border-radius: 30%;
+}
+.logo h2{color:white;
+    font-size: 52pt;
+filter: contrast(30);
+font-family: sans-serif;
+font-weight: 700;}
+.shine{
+ width:10vw;
+    height: 130vh;
+    background: linear-gradient(90deg,black ,silver );
+    transform: rotate(145deg) translate(0,20vh) skewX(180deg);
+    opacity: 0.2;
+        outline:none;
+    border: 0;
+    margin-left: -190px;
 }
 .grid{
-    margin-left: 50%;
+    margin-left: 20%;
     margin-top: 25vh;
-    width:20vmin;
-    height: 20vmin;
+    width:30vmin;
+    height: 30vmin;
     color:white;
     position: relative;
     background-color: #00f;
@@ -99,7 +147,7 @@ display: none;
         left:0;
         transform: rotateZ(0deg);}
     to{
-       left: 22vmin;
+       left: 210px;
          transform: rotateZ(90deg);
     }
 }
@@ -111,8 +159,8 @@ display: none;
         transform: rotateZ(0deg);
     }
     to{
-    left: 22vmin;
-    top:21.3vmin;
+    left: 210px;
+    top:245px;
     opacity: 1;
          transform: rotateZ(90deg);
     }
@@ -123,7 +171,7 @@ display: none;
         transform: rotateZ(0deg);
     }
     to{
-    top:-21.3vmin;
+    top:-245px;
          transform: rotateZ(90deg);
     }
 }
@@ -136,8 +184,8 @@ display: none;
         transform: rotateZ(90deg);
     }
     to{
-    top:-21.7vmin;
-    left:-22vmin;
+    top:-245px;
+    left:-210px;
     opacity: 0.3;
         transform: rotateZ(0deg);
     }
@@ -145,11 +193,13 @@ display: none;
 @keyframes move5{
     from{
         left:0;
+        top:0;
         opacity: 0.5;
         transform: rotateZ(90deg);
     }
     to{
-    left: -22vmin;
+    left: -220px;
+        top:-40px;
     opacity: 1;
          transform: rotateZ(0deg);
     }
@@ -160,8 +210,8 @@ from{top:0;
     transform: rotateZ(90deg);
     }
     to{
-        top:-21.3vmin;
-        left: 22vmin;
+        top:-210px;
+        left: 210px;
         transform: rotateZ(0deg);
     }
     
