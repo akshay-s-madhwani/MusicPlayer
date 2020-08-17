@@ -1,5 +1,9 @@
 window.onload = function () {
 
+setTimeout(()=>{document.querySelector('#load').style.display = 'none';
+   document.querySelector('.player_body').style.display = 'block';},5600);
+    
+    
     //Variables
     let audioArray = ["songs/Benny%20Blanco%20Halsey%20&%20Khalid-Eastside.mp3",
 
@@ -119,13 +123,13 @@ window.onload = function () {
     mainPlayer.prototype.imgPlaying = function (j) {
 
         stage.push(j)
-        left.onclick = function () {
-            stage.push(parseInt(j, 10) - 1)
-        };
-
-        right.onclick = function () {
-            stage.push(parseInt(j, 10) + 1)
-        };
+//        left.onclick = function () {
+//            stage.push(parseInt(j, 10) - 1)
+//        };
+//
+//        right.onclick = function () {
+//            stage.push(parseInt(j, 10) + 1)
+//        };
         stage.length > 2 ? stage.splice(0, 1) : console.log(stage);
 
         console.log(active);
@@ -135,18 +139,26 @@ window.onload = function () {
             this.music[j].play();
             button.setAttribute('class', ' fa fa-pause-circle-o play');
             songDisplay.innerHTML = `<p>${this.artist[j].childNodes[0].innerText}</p> <p> ${this.artist[j].childNodes[1].innerText}</p>`;
+             
             return active;
         } else if (active == true) {
+            this.music[stage[0]].currentTime = 0;
             this.music[stage[0]].pause();
             this.music[j].play();
             button.setAttribute('class', ' fa fa-pause-circle-o play');
-            songDisplay.innerText = `${this.artist[j].childNodes[0].innerText} -> ${this.artist[j].childNodes[1].innerText}`;
-
+            songDisplay.innerHTML = `<p>${this.artist[j].childNodes[0].innerText}</p> <p> ${this.artist[j].childNodes[1].innerText}</p>`;
             return active;
         }
 
 
 
+    }
+    mainPlayer.prototype.moveSong = function (j) {
+    console.log(this.music[j]);
+        if(this.music[j].currentTime == 2){
+            console.log(stage[1]+1);
+        }
+        
     }
     mainPlayer.prototype.utility = function (j) {
         console.log(active);
@@ -155,10 +167,10 @@ window.onload = function () {
             active = true;
             this.music[0].play();
             button.setAttribute('class', ' fa fa-pause-circle-o play');
-            this.music.onended = function () {
+            this.music[0].onended = function () {
                 console.log(this.music[j]);
             }
-        } else if (active == true && stage.length > 0) {
+        } else if (active == true && stage.length >= 1) {
             active = false;
             this.music[j].pause();
             button.setAttribute('class', ' fa fa-play-circle-o play');
@@ -179,6 +191,9 @@ window.onload = function () {
                 }
                 seek = setInterval(function () {
                     seekBar.value = presentSong.currentTime;
+                    if(presentSong.currentTime==5){
+                        player.imgPlaying(stage[1]+1);
+                    }
                 }, 1000);
 
                 function stopSeek() {
@@ -191,6 +206,15 @@ window.onload = function () {
                     presentSong.currentTime = seekBar.value;
                     seekBar.value = presentSong.currentTime;
                 }
+                function end(){
+                    console.log(presentSong.currentTime)
+                    if(presentSong.ended){
+                        console.log(stage+' '+ended);
+                        active == false;
+                        
+                    }
+                }
+                requestAnimationFrame()
 
             } catch (err) {
                 console.log(err);
@@ -205,6 +229,7 @@ window.onload = function () {
     let im = document.querySelectorAll('.play_img');
     let list = document.querySelectorAll('.list');
     for (let j in audioArray) {
+       
         im[j].onclick = function () {
             player.imgPlaying(j);
             clearInterval(seek);
@@ -213,6 +238,7 @@ window.onload = function () {
             im[j].setAttribute('id', 'big-img');
             rollUp.style.visibility = 'visible';
             theme.style.display = ' none';
+            
             if (stage.length > 1) {
                 im[stage[0]].removeAttribute('id', 'big-img');
 
@@ -229,9 +255,30 @@ window.onload = function () {
             button.onclick = function () {
                 player.utility(j);
             }
-        }
+            
+        
+    }
 
         list[j].onclick = function () {
+            
+        left.onclick = function () {
+            if (stage.length > 1) {
+               j-=1;
+                player.imgPlaying(j);
+                 button.onclick = function () {
+                player.utility(j);
+            }
+            }
+        };
+        right.onclick = function () {
+            if (stage.length > 1) {
+               j+=1;
+                player.imgPlaying(j);
+                 button.onclick = function () {
+                player.utility(j);
+            }
+            }
+        };
             player.imgPlaying(j);
             clearInterval(seek);
             player.seekable(j);
@@ -240,34 +287,35 @@ window.onload = function () {
             button.onclick = function () {
                 player.utility(j);
             }
-            try {
                 left.onclick = function () {
                     player.imgPlaying(parseInt(j, 10) - 1)
                 };
 
                 right.onclick = function () {
-                    player.imgPlaying(parseInt(j, 10) + 1)
+                    player.imgPlaying(parseInt(j, 10) + 2)
                 };
 
-            } catch (err) {
-                console.log(err);
-            }
-
+            
             button.onclick = function () {
                 player.utility(j);
             }
         }
-        left.onclick = function () {
-            if (stage.length > 1) {
-                player.imgPlaying(parseInt(stage[1], 10) - 1)
-            }
-        };
-        right.onclick = function () {
-            if (stage.length > 1) {
-                player.imgPlaying(parseInt(stage[1], 10) + 1)
-            }
-        };
-    }
+        console.log(stage);
+//        left.onclick = function () {
+//            if (stage.length > 1) {
+//               j=stage[1]-1;
+//                console.log(stage)
+//                player.imgPlaying(j);
+//            }
+//        };
+//        right.onclick = function () {
+//            if (stage.length > 1) {
+//               j = stage[1]+1;
+//                console.log(stage);
+//                player.imgPlaying(j);
+//            }
+ }
+      
     for(let i = 0;i<=list.length;i++){
         theme.onclick = function () {
         if (theme.style.color == 'yellow') {
