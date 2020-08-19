@@ -1,5 +1,5 @@
 --root{
-    
+--seekPos:0.0;    
 }
 ::-webkit-scrollbar{
     width:0;
@@ -49,29 +49,42 @@ grid-gap: 10vw;
 }
 .logo{
     width:40vw;
-    height: 40vw;
+    height: 20vw;
     position: fixed;
-    align-self: center;
-    background: rgba(120,20,20,1);
-border-radius: 20%;
-    padding-top: 40px;
-    top:15vh;
+    background: transparent;
+    top:50vh;
     left:30vw;
     text-align: center;
-    filter: contrast(1.4) saturate(140%) hue-rotate(280deg);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
     opacity: 1;
     z-index: 15;
 }
-.logo img{
-    filter:contrast(26);
-    border-radius: 30%;
+.fa-play-circle{
+    min-height:68pt;
+    min-width: 68pt;
+    background: black;
+    filter:contrast(92%);
+    border-radius: 50%;
+    font-size: 70pt;
+    color:white;
+    border: 50px black solid;
+    animation: logo 3s ease-out .1s forwards;
 }
 .logo h2{
-    color:#111;
-    font-size: 52pt;
-font-family: 'Aladin';
+    color:#dee;
+    font-size: 55pt;
+font-family: 'Oleo Script';
     letter-spacing: 3.2pt;
-font-weight: 700;}
+    text-decoration: underline black;
+font-weight: 700;
+}
+@keyframes logo{
+    from{filter: brightness(1%);}
+    to{filter: brightness(120%);}
+}
 .shine{
  width:20vw;
     height: 150vh;
@@ -80,11 +93,11 @@ font-weight: 700;}
     opacity: 0.2;
         outline:none;
     border: 0;
-    margin-left: -105vw;
+    margin-left: -115vw;
 }
 .grid{
     margin-left: 20%;
-    margin-top: 40vh;
+    margin-top: 30vh;
     width:30vmin;
     height: 30vmin;
     color:white;
@@ -320,7 +333,7 @@ from{top:0;
     overflow-x: scroll;
     direction: ltl;
     overflow-y: hidden;
-    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
     padding-top:10px;
     position: fixed;
     padding-left: 0px;
@@ -329,7 +342,7 @@ from{top:0;
     box-shadow:inset 5px -8px 15px 14px rgba(5,5,5,0.55);
 }
 .display_inner{
-    width:600vw;
+    width:450vw;
     height: 100%;
     padding-bottom: 30px;
     padding-top: 25px;
@@ -439,7 +452,7 @@ color:white;
     align-self: flex-end;
 }
 i:hover{
-    color:crimson;
+    color:red;
 }
 
 input[type=range]{
@@ -450,7 +463,7 @@ input[type=range]{
     
     margin-left: -5px;
     background-color:transparent;
-    order:2;
+    order:3;
 }
 input[type=range]:focus::-webkit-slider-runnable-track{
 background: #555;
@@ -461,20 +474,29 @@ background: #555;
 }
 
 input[type=range]::-webkit-slider-runnable-track{
-    height: 1.5px;
-    background: rgba(245,225,125,1);
+    height: 7px;
+
+    background:-webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(var(--seekPos), yellow),
+    color-stop(var(--seekPos), black));
+    transition: all linear .5s;
+    /*rgba(245,225,125,1);
+*/
     margin-bottom: .1px;
-    box-shadow: .1px .1px 15px .8px yellow;
+    box-shadow: .1px .1px 12px .2px black;
 }
 input[type=range]::-webkit-slider-thumb{
-    border:3px black solid;
-    width:15px;
-    height: 15px;
+    border:8px black solid;
+    width:25px;
+    height: 25px;
     border-radius: 50%;
     -webkit-appearance:none;
-    margin-top: -6px;
+    margin-top: -8px;
     background:yellow;
-    transition: all linear 2s;
+    transition: all linear .5s;
 }
 input[type=range]:focus::-webkit-slider-thumb{
  background: #222; 
@@ -499,6 +521,15 @@ input[type=range]:focus::-webkit-slider-thumb{
     color:aliceblue;
     order:1;
     
+}
+.currentTime{
+    order:2;
+    color:white;
+    font-size: 15pt;
+    align-self: flex-end;
+    margin:20px 10vw 2px 0;
+    width:10px;
+    position: fixed;
 }
 .currentSong p:nth-child(1){
     font-family: 'Fredoka One';
@@ -553,8 +584,8 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 .listView{
     width:100vw;
-    min-height: 120vmax;
-    max-height: 130vmax;
+    min-height: 130vmax;
+    max-height: 140vmax;
     background: maroon;
     margin-top: 28.5vh;
     padding-top: 30px;
