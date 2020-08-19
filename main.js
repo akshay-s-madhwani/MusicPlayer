@@ -1,8 +1,8 @@
 window.onload = function () {
-//
-//setTimeout(()=>{document.querySelector('#load').style.display = 'none';
-//   document.querySelector('.player_body').style.display = 'block';},5600);
-//   
+
+setTimeout(()=>{document.querySelector('#load').style.display = 'none';
+   document.querySelector('.player_body').style.display = 'block';},5600);
+   
     
     //Variables
     let audioArray = ["songs/Ed%20Sheeran%20-%20Perfect%20[Mw%20Hits].mp3",
