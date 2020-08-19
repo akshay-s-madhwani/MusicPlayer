@@ -131,11 +131,8 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
     mainPlayer.prototype.imgPlaying = function (j) {
 
         stage.push(j)
-        stage.length > 2 ? stage.splice(0, 1) : console.log(stage);
-
-        console.log(active);
-        console.log(stage);
-        if (active == false) {
+        stage.length > 2 ? stage.splice(0, 1) :null; 
+        if(active == false) {
             active = true;
             this.music[j].play();
             button.setAttribute('class', ' fa fa-pause-circle-o play');
@@ -155,18 +152,15 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
 
     }
     mainPlayer.prototype.moveSong = function (j) {
-    console.log(this.music[j].duration);
         return this.music[j];  
     }
     mainPlayer.prototype.utility = function (j) {
-        console.log(active);
+      
         if (active == false && stage.length == 0) {
-            console.log(this.music[j]);
             active = true;
             this.music[0].play();
             button.setAttribute('class', ' fa fa-pause-circle-o play');
             this.music[0].onended = function () {
-                console.log(this.music[j]);
             }
         } else if (active == true) {
             active = false;
@@ -202,7 +196,6 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
                 }, 1000);
 
                 function stopSeek() {
-                    console.log(presentSong)
                     clearInterval(seek);
                     seekBar.value = 0;
                 }
@@ -215,15 +208,6 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
                     seekBar.style.backgroundImage = -"webkit-gradient(linear,left top,right top,"+
                         "color-stop("+v+", yellow),"+"color-stop("+v+", black)"+")"; 
                 }
-//                function end(){
-//                    console.log(presentSong.currentTime)
-//                    if(presentSong.ended){
-//                        console.log(stage+' '+ended);
-//                        active == false;
-//                        
-//                    }
-//                }
-//                
 
             } catch (err) {
                 console.log(err);
@@ -262,7 +246,7 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
         showcase.setAttribute('id', 'big-display');
         imageSelect[pos].setAttribute('id', 'big-img');
         rollUp.style.visibility = 'visible';
-        
+        document.querySelector('.control-bar').style.boxShadow  = 0;
                                 
         if (stage.length > 1) {
          imageSelect[stage[0]].removeAttribute('id', 'big-img');
@@ -284,8 +268,8 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
             imgSelector(j)
             
             selected.onended = () => {
-                console.log(stage);
-                j = parseInt(j,10)+1
+                j = parseInt(j,10)+1;
+                selected = player.moveSong(j)
                 main(j);
                 imgSelector(j);
             }
@@ -307,8 +291,9 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
             imgSlider(j);
             imageSelect[j].onclick = () => imgSelector(j);
             selected.onended = () => {
-                console.log("well well");
-                j = parseInt(j,10)+1
+                console.log(selected);
+                j = parseInt(j,10)+1;
+                selected = player.moveSong(j);
                 main(j);
                 imgSlider(j);
             }
@@ -316,11 +301,25 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
                 j = parseInt(j,10)-1
                 main(j);
                 imgSlider(j);
+                 selected.onended = () => {
+                console.log(selected);
+                j = parseInt(j,10)+1;
+                selected = player.moveSong(j);
+                main(j);
+                imgSlider(j);
+            }
             }
             right.onclick = function(){
                 j = parseInt(j,10)+1
                 main(j);
                 imgSlider(j);
+                 selected.onended = () => {
+                console.log(selected);
+                j = parseInt(j,10)+1;
+                selected = player.moveSong(j);
+                main(j);
+                imgSlider(j);
+            }
             }
         }
             
@@ -330,8 +329,8 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
             main(j);
             imgSelector(j)
             selected.onended = () => {
-                console.log("well well");
-                j = parseInt(j,10)+1
+                j = parseInt(j,10)+1;
+                selected = player.moveSong(j);
                 main(j);
                 imgSelector(j);
             }

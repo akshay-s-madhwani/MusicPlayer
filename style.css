@@ -75,11 +75,18 @@ grid-gap: 10vw;
 }
 .logo h2{
     color:#dee;
-    font-size: 55pt;
-font-family: 'Oleo Script';
+    font-size: 75pt;
+font-family: 'Charm';
     letter-spacing: 3.2pt;
     text-decoration: underline black;
 font-weight: 700;
+}
+.logo p{
+    position: fixed;
+    top:60vh;
+    font-size: 30pt;
+    color:white;
+    right: 20vw;
 }
 @keyframes logo{
     from{filter: brightness(1%);}
@@ -494,6 +501,7 @@ input[type=range]::-webkit-slider-thumb{
     height: 25px;
     border-radius: 50%;
     -webkit-appearance:none;
+    filter: contrast(152%);
     margin-top: -8px;
     background:yellow;
     transition: all linear .5s;
@@ -527,7 +535,7 @@ input[type=range]:focus::-webkit-slider-thumb{
     color:white;
     font-size: 15pt;
     align-self: flex-end;
-    margin:20px 10vw 2px 0;
+    margin:20px 12vw 2px 0;
     width:10px;
     position: fixed;
 }
