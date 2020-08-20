@@ -403,6 +403,7 @@ from{top:0;
     height:15vh; 
     background: rgba(25,25,25,1);
     z-index: 10;
+    padding-bottom: 0;
     box-shadow: 5px 0 20px 5px black;
 }
 
@@ -414,8 +415,8 @@ from{top:0;
     justify-content: center;
     align-content: center;
     align-items: baseline;
-    margin-top: -20px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: -5px;
     order:3;
 }
 .play{
@@ -426,24 +427,24 @@ from{top:0;
 
 .fa-play-circle-o{
     color:white;
-    font-size: 62pt;
-    margin: -5pt 7vw 0 7vw;
+    font-size: 82pt !important;
+    margin: 1pt 8vw 1pt 8vw;
 }
 .fa-pause-circle-o{
 color:white;
-    font-size: 62pt;
-    
+    font-size: 82pt !important;
+    margin: 1pt 12vw 5pt 8vw;
 }
 .fa-chevron-left{
     color:aliceblue;
-    font-size:42pt;
-    margin:32pt 23pt 0 0;
+    font-size:52pt !important;
+    margin:42pt 23pt 0 0;
 }
 
 .fa-chevron-right{
     color:aliceblue;
-    font-size:42pt;
-    margin:32pt 0 0 23pt;
+    font-size:52pt !important;
+    margin:42pt 0 0 23pt;
 }
 i:hover{
     color:red;
@@ -454,8 +455,7 @@ input[type=range]{
     height: 12px;
     border-radius: 10px;
     -webkit-appearance:none;
-    
-    margin-left: -5px;
+    margin: 3vh 0 -10px -5px;
     background-color:transparent;
     order:3;
 }
@@ -510,7 +510,7 @@ input[type=range]:focus::-webkit-slider-thumb{
     letter-spacing: 1.5pt;
     margin:2px 0 -5px 0;
     margin-left: 35px;
-    font-size:24pt;
+    font-size:32pt;
     font-weight: 500;
     color:aliceblue;
     order:1;
@@ -524,12 +524,13 @@ input[type=range]:focus::-webkit-slider-thumb{
     align-content: center;
     width:100vw;
     height: 40pt;
+    margin: 10pt 0 -5pt;
     order:1;
 }
 .currentTime{
     order:2;
     color:white;
-    font-size: 15pt;
+    font-size: 20pt;
     align-self: flex-end;
     margin:20px 7vw 10px 0;
     width:10px;
