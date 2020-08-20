@@ -348,9 +348,5 @@ setTimeout(()=>{document.querySelector('#load').style.display = 'none';
          }
      } 
     }
-    
-
-
-
 
 }
