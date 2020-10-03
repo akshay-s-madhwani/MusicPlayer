@@ -532,7 +532,7 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 .currentSong p:nth-child(1){
     font-family: 'Fredoka One';
-    margin: 0 6px 0 0;
+    margin: 0 25px 0 0;
 }
 .currentSong p:nth-child(2){
     font-family: 'Poppins';
@@ -546,6 +546,7 @@ input[type=range]:focus::-webkit-slider-thumb{
 .list{
     list-style-type: none;
     display: inline-flex;
+    padding: 20px;
     flex-flow: column wrap;
     min-height:14vh;
     max-height:14vh;
@@ -554,12 +555,9 @@ input[type=range]:focus::-webkit-slider-thumb{
     border-bottom: 0.4px black solid;
     background-color:#f1c40f;
     margin-top: 3.5vh;
-    border-radius: 10px 0 0 10px; 
+    border-radius: 15px 0 15px 0; 
     padding:1.5px;
-    
-}
-.list:hover{
-    
+    width:90%;
 }
 #secondShadow{
     box-shadow: -2px - 15px 10px rgba(85,105,40,0.48);
@@ -603,20 +601,18 @@ input[type=range]:focus::-webkit-slider-thumb{
 .listView ul{
     display: flex;
     flex-flow: column wrap;
-    margin-left: 1vw;
-     margin-top:0;   
+    margin-top:0;   
+    align-items:center;
+    justify-content: center;
+    padding: 0px;
 }
 
 .thumb{
-    min-height: 15vw;
-    max-width: 15vw;
-    margin-top: 3vh;
+    min-height: 80%;
+    max-width: 15%;
     border-radius: 15px;
     margin-left: 0;
-    vertical-align:left;
-    transform: translate(10px,-10px);
     filter:saturate(80%) brightness(110%) contrast(130%);
-    order:1;
 }
 
 @media (min-device-height:200px) and (max-device-height:630px){
@@ -653,6 +649,9 @@ input[type=range]:focus::-webkit-slider-thumb{
     }
     .list{
         height: 13vh;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .list p{
         margin-left: 90px;
@@ -691,11 +690,9 @@ input[type=range]:focus::-webkit-slider-thumb{
         min-height: 12vh;
         min-width: 12vh;
         max-width: 12vh;
-        margin: 20px 0 0 -60vw;
-        
     }
     .thumb:active{
         margin: 10px 0;
-    }:
+    }
     
 }
