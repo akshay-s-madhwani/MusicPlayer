@@ -610,9 +610,10 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 
 .thumb{
-    min-height: 11vw;
-    max-width: 11vw;
-    margin-top: 2vh;
+    
+    max-height: 15vw;
+    max-width: 15vw;
+    margin:1vh 2vw 1vh 1vw;
     border-radius: 15px;
     margin-left: 0;
     vertical-align: middle;
