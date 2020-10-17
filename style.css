@@ -577,6 +577,7 @@ input[type=range]:focus::-webkit-slider-thumb{
 
 .list p:nth-child(1){
     margin-bottom: -5px;
+    
 }
 
 .list p:nth-child(2){
@@ -585,8 +586,8 @@ input[type=range]:focus::-webkit-slider-thumb{
     font-family: 'Poppins';
 }
 .list p{
-    margin:20pt 0 0 16vw;
-    margin-bottom: -5px;
+    margin:20pt 0 -5px 16vw;
+    transform: translateX(15vw);
     color:aliceblue;
     font-weight:550;
     font-size: 20pt;
@@ -594,8 +595,8 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 .listView{
     width:100vw;
-    min-height: 130vmax;
-    max-height: 140vmax;
+    min-height: 150vh;
+    max-height: 160vh;
     background: darkslategrey;
     margin-top: 28.5vh;
     padding-top: 30px;
@@ -610,10 +611,11 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 
 .thumb{
-    
-    max-height: 15vw;
-    max-width: 15vw;
-    margin:1vh 2vw 1vh 1vw;
+    min-height: 17vw;
+    max-height: 17vw;
+    min-width: 17vw;
+    max-width: 17vw;
+    margin-top: 1vh;
     border-radius: 15px;
     margin-left: 0;
     vertical-align: middle;
