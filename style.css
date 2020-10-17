@@ -338,7 +338,7 @@ from{top:0;
 
     width: 100%;
     height:30vh;
-    background: rgba(25,25,25,1);
+    background: #242424;
     overflow-x: scroll;
     direction: ltl;
     overflow-y: hidden;
@@ -560,7 +560,7 @@ input[type=range]:focus::-webkit-slider-thumb{
     min-height: 14vh;
     max-height: 14vh;
     border-bottom: 0.4px black solid;
-    background: rgba(25,25,25,1);
+    background:#080808;
     box-shadow:-2px -2px 4px 5px rgba(25,25,25,0.5), 1.5px 2px 3px 4px rgba(56,46,46,0.8);
 
     margin-top: 4vh;
@@ -611,11 +611,12 @@ input[type=range]:focus::-webkit-slider-thumb{
 }
 
 .thumb{
-    min-height: 17vw;
-    max-height: 17vw;
-    min-width: 17vw;
-    max-width: 17vw;
-    margin-top: 1vh;
+    min-height: 12vh;
+    max-height: 12vh;
+    min-width: 12vh;
+    max-width: 12vh;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
     border-radius: 15px;
     margin-left: 0;
     vertical-align: middle;
